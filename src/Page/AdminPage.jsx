@@ -240,13 +240,14 @@ const AdminPage = () => {
         window.location.href = `${BACKEND_URL}/export-all-apps`;
     }
   };
-
+ 
   const handleUploadImage = async (qIndex, e) => {
     const file = e.target.files[0];
     if (!file || !editingApp.sheetName) return alert("Chọn file và nhập Sheet Name trước!");
     const formData = new FormData();
     formData.append('image', file);
     try {
+      console.log("Đang upload ảnh vào folder:", editingApp.sheetName);
       const res = await fetch(`${BACKEND_URL}/upload-config-image?appId=${editingApp.sheetName}`, { method: 'POST', body: formData });
       const json = await res.json();
       if (json.status === 'success') {
