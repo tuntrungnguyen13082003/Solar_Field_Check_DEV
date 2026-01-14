@@ -240,6 +240,8 @@ const AdminPage = () => {
         window.location.href = `${BACKEND_URL}/export-all-apps`;
     }
   };
+
+  
  
   const handleUploadImage = async (qIndex, e) => {
     const file = e.target.files[0];
